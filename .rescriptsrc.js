@@ -19,13 +19,22 @@ const addPlugins = config => {
 }
 
 module.exports = [
-	(config) => {
-		const mode = process.env.NODE_ENV || 'developer'
-		let publicPath = ''
-		publicPath = `//${process.env.HOST}:${process.env.PORT}/`
-		config.output.publicPath = publicPath
-		config.mode = mode
+  (config) => {
+    const mode = process.env.NODE_ENV || 'development';
+    let publicPath = `//${process.env.HOST}:${process.env.PORT}/`;
+    config.output.publicPath = publicPath;
+    config.mode = mode;
 
-		return addPlugins(config)
-	}
-]
+    if (mode === 'development') {
+      config.devServer = {
+        ...config.devServer,
+        hot: true,
+        liveReload: true,
+        open: true,
+        historyApiFallback: true,
+      };
+    }
+
+    return addPlugins(config);
+  }
+];

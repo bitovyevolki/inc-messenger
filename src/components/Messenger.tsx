@@ -1,12 +1,15 @@
 type Props = {
-	locale?: string
+  locale?: string
 }
 
-const Messenger = ({locale}: Props) => {
-	console.log(locale)
-	return ( <div style={{padding: '50px', border: '2px solid red', width: 'fit-content'}}>
-		Hello world
-	</div> );
+const Messenger = ({ locale }: Props) => {
+  // console.log(locale)
+
+  return (
+    <div style={{ border: '2px solid red', padding: '50px', width: 'fit-content' }}>
+      Hello world
+    </div>
+  )
 }
 
 export default Messenger

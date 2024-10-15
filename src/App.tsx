@@ -1,11 +1,11 @@
-import TestComponent from "./components/Messenger";
+import TestComponent from './components/Messenger'
 
 function App() {
   return (
-    <div className="App">
+    <div className={'App'}>
       <TestComponent></TestComponent>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
