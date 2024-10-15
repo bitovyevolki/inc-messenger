@@ -4,7 +4,7 @@ const {name, dependencies: deps} = require('./package.json');
 const addPlugins = config => {
 	config.plugins.unshift(
   	new ModuleFederationPlugin({
-      exposes: {'./RemoteMessenger': './src/components/Messenger.tsx',},
+      exposes: {'./RemoteMessenger': './src/App.tsx',},
       filename: 'remoteEntry.js',
       name,
       remotes: {},
