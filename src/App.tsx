@@ -1,3 +1,5 @@
+import React from 'react'
+
 import TestComponent from './components/Messenger'
 
 function App() {
