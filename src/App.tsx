@@ -1,11 +1,13 @@
-import React from 'react'
+import './styles/globals.scss'
 
-import TestComponent from './components/Messenger'
+import { Messenger } from './components/messenger/Messenger'
 
-function App() {
+function App(...props: any) {
+  const locale = props[0]?.locale || 'en'
+
   return (
-    <div className={'App'}>
-      <TestComponent></TestComponent>
+    <div>
+      <Messenger locale={locale} />
     </div>
   )
 }

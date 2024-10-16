@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bitovyevolki/ui-kit-int": "^0.2.2",
     "@it-incubator/eslint-config": "^1.0.3",
     "@it-incubator/prettier-config": "^0.1.2",
     "@it-incubator/stylelint-config": "^2.0.0",
@@ -14,11 +15,16 @@
     "@types/node": "^16.18.113",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "css-loader": "^7.1.2",
+    "postcss-loader": "^8.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.6",
+    "resolve-url-loader": "^5.0.0",
+    "sass-loader": "^16.0.2",
     "scss": "^0.2.4",
+    "style-loader": "^4.0.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "webpack": "^5.95.0"
@@ -49,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "^7.1.0"
+    "@craco/craco": "^7.1.0",
+    "sass": "^1.79.5"
   }
 }

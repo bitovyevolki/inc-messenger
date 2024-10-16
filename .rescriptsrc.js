@@ -1,22 +1,23 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const {name, dependencies: deps} = require('./package.json');
+const { name, dependencies: deps } = require('./package.json');
 
-const addPlugins = config => {
-	config.plugins.unshift(
-  	new ModuleFederationPlugin({
-      exposes: {'./RemoteMessenger': './src/App.tsx',},
+const addPluginsAndRules = config => {
+  config.plugins.unshift(
+    new ModuleFederationPlugin({
+      exposes: { './RemoteMessenger': './src/App.tsx' },
       filename: 'remoteEntry.js',
       name,
       remotes: {},
-			shared: {
-				...deps,
+      shared: {
+        ...deps,
         react: { singleton: true, eager: true, requiredVersion: false },
         'react-dom': { singleton: true, eager: true, requiredVersion: false },
       },
-    }),
-	)
-	return config
-}
+    })
+  );
+
+  return config;
+};
 
 module.exports = [
   (config) => {
@@ -30,11 +31,9 @@ module.exports = [
         ...config.devServer,
         hot: true,
         liveReload: true,
-        open: true,
-        historyApiFallback: true,
       };
     }
 
-    return addPlugins(config);
+    return addPluginsAndRules(config);
   }
 ];
