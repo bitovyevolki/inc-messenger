@@ -1,11 +1,11 @@
-import { DialogChat } from '../dialog-chat/DialogChat'
+import { DialogItem } from '../dialog-chat/DialogItem'
 
 export const Dialogs = () => {
   return (
     <div>
-      <DialogChat />
-      <DialogChat />
-      <DialogChat />
+      <DialogItem />
+      <DialogItem />
+      <DialogItem />
     </div>
   )
 }

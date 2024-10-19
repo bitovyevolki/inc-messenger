@@ -1,17 +1,23 @@
 import { Typography } from '@bitovyevolki/ui-kit-int'
 
-import s from './dialogChat.module.scss'
+import s from './dialogItem.module.scss'
 
-export const DialogChat = () => {
+import { AvatarIcon } from '../../shared/assets/icons/avatar'
+
+export const DialogItem = () => {
   return (
     <div className={s.wrap}>
-      <div className={s.icon}>ikon</div>
+      <div className={s.icon}>
+        <AvatarIcon />
+      </div>
       <div className={s.content}>
         <div className={s.title}>
           <Typography variant={'body2'}>{'Ekaterina Ivanova'}</Typography>
         </div>
         <div className={s.message}>
-          <Typography variant={'overline'}>{'Message'}</Typography>
+          <Typography variant={'caption'}>
+            <p className={s.messageColor}>{'Message'}</p>
+          </Typography>
         </div>
       </div>
       <div className={s.date}>

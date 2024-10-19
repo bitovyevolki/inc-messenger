@@ -2,6 +2,8 @@ import { Button, Input, Typography } from '@bitovyevolki/ui-kit-int'
 
 import s from './Messenger.module.scss'
 
+import { AvatarIcon } from '../../shared/assets/icons/avatar'
+import { SearchIcon } from '../../shared/assets/search'
 import t from '../../translations'
 import { Dialogs } from '../dialogs-list/Dialogs'
 import { Messages } from '../messages/Messages'
@@ -19,7 +21,10 @@ export const Messenger = ({ locale }: Props) => {
       <div className={s.container}>
         <div className={s.dialogs}>
           <form className={s.form}>
-            <Input placeholder={'Input Search'} />
+            <div className={s.searchIcon}>
+              <SearchIcon />
+            </div>
+            <Input className={s.input} placeholder={'Input Search'} />
           </form>
           <div className={s.dialogList}>
             <Dialogs />
@@ -27,7 +32,9 @@ export const Messenger = ({ locale }: Props) => {
         </div>
         <div className={s.messages}>
           <div className={s.title}>
-            <div className={s.titleIcon}>icon</div>
+            <div className={s.titleIcon}>
+              <AvatarIcon />
+            </div>
             <div className={s.titleName}>Jekaterina Ivanova</div>
           </div>
           <Messages />
