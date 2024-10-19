@@ -4,9 +4,13 @@ import s from './dialogItem.module.scss'
 
 import { AvatarIcon } from '../../shared/assets/icons/avatar'
 
-export const DialogItem = () => {
+type DialogProps = {
+  activChat: boolean
+}
+
+export const DialogItem = ({ activChat }: DialogProps) => {
   return (
-    <div className={s.wrap}>
+    <div className={`${s.wrap} ${activChat ? s.active : ''}`}>
       <div className={s.icon}>
         <AvatarIcon />
       </div>

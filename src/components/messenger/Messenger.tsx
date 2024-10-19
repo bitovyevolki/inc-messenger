@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { Button, Input, Typography } from '@bitovyevolki/ui-kit-int'
 
 import s from './Messenger.module.scss'
@@ -14,6 +16,7 @@ type Props = {
 
 export const Messenger = ({ locale }: Props) => {
   console.log(t[locale].greeting)
+  const [activChat, setActivChat] = useState(true)
 
   return (
     <div className={s.wrapper}>
@@ -27,17 +30,23 @@ export const Messenger = ({ locale }: Props) => {
             <Input className={s.input} placeholder={'Input Search'} />
           </form>
           <div className={s.dialogList}>
-            <Dialogs />
+            <Dialogs activChat={activChat} />
           </div>
         </div>
         <div className={s.messages}>
-          <div className={s.title}>
-            <div className={s.titleIcon}>
-              <AvatarIcon />
-            </div>
-            <div className={s.titleName}>Jekaterina Ivanova</div>
+          <div>
+            {activChat ? (
+              <div className={s.title}>
+                <div className={s.titleIcon}>
+                  <AvatarIcon />
+                </div>
+                <div className={s.titleName}>Jekaterina Ivanova</div>
+              </div>
+            ) : (
+              <div className={s.title}></div>
+            )}
           </div>
-          <Messages />
+          <Messages activChat={activChat} />
         </div>
       </div>
     </div>

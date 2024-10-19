@@ -2,10 +2,20 @@ import { Button } from '@bitovyevolki/ui-kit-int'
 
 import s from './Messages.module.scss'
 
-export const Messages = () => {
+type MessagesProps = {
+  activChat: boolean
+}
+
+export const Messages = ({ activChat }: MessagesProps) => {
   return (
-    <div className={s.wrapper}>
-      <Button variant={'secondary'}>Choose who you would like to talk to</Button>
+    <div>
+      {activChat ? (
+        <div className={s.wrapper}>active chat with messages</div>
+      ) : (
+        <div className={s.wrapper}>
+          <Button variant={'secondary'}>Choose who you would like to talk to</Button>
+        </div>
+      )}
     </div>
   )
 }
