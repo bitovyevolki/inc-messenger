@@ -1,9 +1,9 @@
-import { Button, Typography } from '@bitovyevolki/ui-kit-int'
+import { Button, Input, Typography } from '@bitovyevolki/ui-kit-int'
 
 import s from './Messenger.module.scss'
 
 import t from '../../translations'
-import { Dialogs } from '../dialogs/Dialogs'
+import { Dialogs } from '../dialogs-list/Dialogs'
 import { Messages } from '../messages/Messages'
 
 type Props = {
@@ -15,14 +15,21 @@ export const Messenger = ({ locale }: Props) => {
 
   return (
     <div className={s.wrapper}>
-      <Typography variant={'h2'}>Messenger</Typography>
+      <Typography variant={'h2'}>{'Messenger'}</Typography>
       <div className={s.container}>
         <div className={s.dialogs}>
-          <h2 className={s.title}>Диалоги</h2>
-          <Dialogs />
+          <form className={s.form}>
+            <Input placeholder={'Input Search'} />
+          </form>
+          <div className={s.dialogList}>
+            <Dialogs />
+          </div>
         </div>
         <div className={s.messages}>
-          <h2 className={s.title}>Сообщения</h2>
+          <div className={s.title}>
+            <div className={s.titleIcon}>icon</div>
+            <div className={s.titleName}>Jekaterina Ivanova</div>
+          </div>
           <Messages />
         </div>
       </div>
