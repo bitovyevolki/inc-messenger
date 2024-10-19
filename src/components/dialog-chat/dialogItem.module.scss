@@ -1,5 +1,6 @@
 .wrap {
   display: flex;
+  justify-content: center;
   border-bottom: 0.5px solid rgb(17, 17, 17);
   border-top: 0.5px solid rgb(17, 17, 17);
 }
@@ -7,7 +8,7 @@
 .icon {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   height: 48px;
   width: 48px;
   padding: 12px;
@@ -30,5 +31,10 @@
   padding-top: 12px;
   display: flex;
   justify-content: end;
+  align-items: start;
   width: 50px;
+}
+
+.messageColor {
+  color: #8d9094;
 }
