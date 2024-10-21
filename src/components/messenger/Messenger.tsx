@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { Button, Typography } from '@bitovyevolki/ui-kit-int'
+import { Button, Input, Typography } from '@bitovyevolki/ui-kit-int'
 
 import s from './Messenger.module.scss'
 
 import useSocket from '../../hooks/useWebSocket'
+import { AvatarIcon } from '../../shared/assets/icons/avatar'
+import { SearchIcon } from '../../shared/assets/search'
 import t from '../../translations'
-import { Dialogs } from '../dialogs/Dialogs'
+import { Dialogs } from '../dialogs-list/Dialogs'
 import { Messages } from '../messages/Messages'
 
 type Props = {
@@ -42,18 +44,37 @@ export const Messenger = ({ locale }: Props) => {
   //     setNewMessage('') // Очистить поле ввода
   //   }
   // }
+  const [activChat, setActivChat] = useState(true)
 
   return (
     <div className={s.wrapper}>
-      <Typography variant={'h2'}>Messenger</Typography>
+      <Typography variant={'h2'}>{'Messenger'}</Typography>
       <div className={s.container}>
         <div className={s.dialogs}>
-          <h2 className={s.title}>Диалоги</h2>
-          <Dialogs />
+          <form className={s.form}>
+            <div className={s.searchIcon}>
+              <SearchIcon />
+            </div>
+            <Input className={s.input} placeholder={'Input Search'} />
+          </form>
+          <div className={s.dialogList}>
+            <Dialogs activChat={activChat} />
+          </div>
         </div>
         <div className={s.messages}>
-          <h2 className={s.title}>Сообщения</h2>
-          <Messages />
+          <div>
+            {activChat ? (
+              <div className={s.title}>
+                <div className={s.titleIcon}>
+                  <AvatarIcon />
+                </div>
+                <div className={s.titleName}>Jekaterina Ivanova</div>
+              </div>
+            ) : (
+              <div className={s.title}></div>
+            )}
+          </div>
+          <Messages activChat={activChat} />
         </div>
       </div>
     </div>
