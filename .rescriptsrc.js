@@ -9,10 +9,9 @@ const addPluginsAndRules = config => {
       name,
       remotes: {},
       shared: {
-        ...deps,
-        react: { singleton: true, eager: true, requiredVersion: false },
-        'react-dom': { singleton: true, eager: true, requiredVersion: false },
-      },
+  			react: { singleton: true, eager: true },
+        'react-dom': { singleton: true, eager: true },
+			},
     })
   );
 
@@ -29,8 +28,8 @@ module.exports = [
     if (mode === 'development') {
       config.devServer = {
         ...config.devServer,
-        hot: true,
-        liveReload: true,
+        // hot: true,
+        // liveReload: true,
       };
     }
 
